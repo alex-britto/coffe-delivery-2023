@@ -28,14 +28,13 @@ const Container = styled.div(
 		uppercase
 		text-base-text
 		bg-base-button
-		shadow-inner-border
 	`,
 	{
 		variants: {
 			isSelected: (isSelected: boolean) =>
 				isSelected
 					? "bg-purple-light shadow-inner-border"
-					: "hover:bg-base.hover",
+					: "hover:bg-base-hover",
 		},
 	}
 );

@@ -20,13 +20,13 @@ export const NumberInput = ({
 	<Container {...rest}>
 		<Minus
 			size={14}
-			className="fill-purple-default cursor-pointer"
+			className="fill-purple-default hover:fill-purple-dark cursor-pointer"
 			onClick={() => value > 0 && onDecreaseClick()}
 		/>
-		<StyledInput type="number" value={value} {...inputProps} />
+		<StyledInput type="number" value={value} disabled {...inputProps} />
 		<Plus
 			size={14}
-			className="fill-purple-default cursor-pointer"
+			className="fill-purple-default hover:fill-purple-dark cursor-pointer"
 			onClick={onIncreaseClick}
 		/>
 	</Container>
