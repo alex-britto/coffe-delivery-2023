@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 
-import Image from "next/image";
 import { ShoppingCart } from "@phosphor-icons/react";
 
 import {
@@ -13,6 +12,7 @@ import {
 	SelectInputList,
 	TextField,
 	ProductCard,
+	CartItem,
 } from "@/components";
 
 export default function Home() {
@@ -30,6 +30,14 @@ export default function Home() {
 	];
 	return (
 		<div className="grid gap-4">
+			<CartItem
+				imageSrc="/images/coffees/americano.png"
+				title="Americano"
+				price={9.9}
+				quantity={3}
+				onQuantityChange={(e: number) => console.log("Itens selecionados:", e)}
+				onRemoveClick={(e: string) => console.log("Remover", e)}
+			/>
 			<ProductCard
 				imageSrc="/images/coffees/americano.png"
 				tags={["tradicional", "classico"]}

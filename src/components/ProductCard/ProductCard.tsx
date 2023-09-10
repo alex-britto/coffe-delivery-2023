@@ -30,7 +30,7 @@ export const ProductCard = ({
 	return (
 		<Container {...rest}>
 			<Image
-				src="/images/coffees/americano.png"
+				src={imageSrc}
 				alt={title}
 				width={100}
 				height={100}
@@ -60,7 +60,7 @@ export const ProductCard = ({
 						}).format(price)}
 					</Typography>
 				</div>
-				<div className="flex">
+				<div className="flex gap-2">
 					<NumberInput
 						value={numberInputValue}
 						onIncreaseClick={() =>
@@ -69,7 +69,6 @@ export const ProductCard = ({
 						onDecreaseClick={() =>
 							setNumberInputValue((numberInputValue) => numberInputValue - 1)
 						}
-						className="mr-2"
 					/>
 					<Button
 						baseColor="secondary"
@@ -94,6 +93,7 @@ const Container = styled.div(`
 	items-center
 	px-6
 	py-5
+	mt-5
 	shadow-md
 `);
 

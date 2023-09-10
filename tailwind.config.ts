@@ -43,6 +43,9 @@ const config: Config = {
 			fontSize: {
 				xxs: "0.625rem",
 			},
+			width: {
+				"90": "23rem",
+			},
 		},
 	},
 	plugins: [],

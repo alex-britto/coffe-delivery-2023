@@ -32,7 +32,7 @@ export function SelectInputList({
 						title={item.title}
 						onClick={() => handleOnClick(item.id)}
 						isSelected={item.id === selectedItemId}
-						className="p-4 mb-2"
+						className="p-4"
 						key={item.id}
 					/>
 				);

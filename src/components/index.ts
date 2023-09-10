@@ -5,3 +5,4 @@ export { NumberInput } from "./NumberInput/NumberInput";
 export { SelectInputList } from "./SelectInputList/SelectInputList";
 export { TextField } from "./TextField/TextField";
 export { ProductCard } from "./ProductCard/ProductCard";
+export { CartItem } from "./CartItem/CartItem";
