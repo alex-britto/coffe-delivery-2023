@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" className={`${robotoFont.variable} ${baloo2Font.variable}`}>
-			<body className="font-text p-5">{children}</body>
+			<body className="font-text text-base-text p-5">{children}</body>
 		</html>
 	);
 }

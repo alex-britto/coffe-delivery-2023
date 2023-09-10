@@ -30,6 +30,7 @@ const StyledButton = styled.button(
 	p-2 
 	rounded-md
 	font-bold
+	text-white
 	`,
 	{
 		variants: {

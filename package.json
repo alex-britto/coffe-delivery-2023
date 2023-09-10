@@ -23,5 +23,8 @@
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2",
     "windstitch": "^0.3.0"
+  },
+  "devDependencies": {
+    "json-server": "^0.17.3"
   }
 }

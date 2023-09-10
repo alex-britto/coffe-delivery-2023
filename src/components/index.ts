@@ -4,3 +4,4 @@ export { Typography } from "./Typography/Typography";
 export { NumberInput } from "./NumberInput/NumberInput";
 export { SelectInputList } from "./SelectInputList/SelectInputList";
 export { TextField } from "./TextField/TextField";
+export { ProductCard } from "./ProductCard/ProductCard";

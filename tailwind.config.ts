@@ -29,6 +29,7 @@ const config: Config = {
 				card: "#F3F2F2",
 				background: "#FAFAFA",
 			},
+			white: "#FFFFFF",
 			transparent: "#00000000",
 		},
 		fontFamily: {
@@ -38,6 +39,9 @@ const config: Config = {
 		extend: {
 			boxShadow: {
 				"inner-border": "0 0 0 1px #8047F8",
+			},
+			fontSize: {
+				xxs: "0.625rem",
 			},
 		},
 	},

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import Image from "next/image";
 import { ShoppingCart } from "@phosphor-icons/react";
 
 import {
@@ -11,8 +12,8 @@ import {
 	NumberInput,
 	SelectInputList,
 	TextField,
+	ProductCard,
 } from "@/components";
-import Image from "next/image";
 
 export default function Home() {
 	const [text, setText] = useState("");
@@ -29,13 +30,13 @@ export default function Home() {
 	];
 	return (
 		<div className="grid gap-4">
-			<Image
-				src="/images/coffees/americano.png"
-				alt="americano"
-				width={50}
-				height={50}
-				className="transition-opacity opacity-0 duration-[2s]"
-				onLoadingComplete={(img) => img.classList.remove("opacity-0")}
+			<ProductCard
+				imageSrc="/images/coffees/americano.png"
+				tags={["tradicional", "classico"]}
+				title="Americano"
+				description="Expresso diluído, menos intenso que o tradicional"
+				price={9.9}
+				onCartClick={(e: number) => console.log("Itens selecionados:", e)}
 			/>
 			<TextField placeholder="Label" value={text} onChange={setText} />
 			<SelectInputList
