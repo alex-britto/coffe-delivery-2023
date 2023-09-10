@@ -10,9 +10,11 @@ import {
 	Typography,
 	NumberInput,
 	SelectInputList,
+	TextField,
 } from "@/components";
 
 export default function Home() {
+	const [text, setText] = useState("");
 	const [numberInputValue, setNumberInputValue] = useState(0);
 	const selectInputItems = [
 		{
@@ -26,6 +28,7 @@ export default function Home() {
 	];
 	return (
 		<div className="grid gap-4">
+			<TextField placeholder="Label" value={text} onChange={setText} />
 			<SelectInputList
 				items={selectInputItems}
 				onClick={(item) => console.log("clicou no item", item)}
@@ -40,7 +43,7 @@ export default function Home() {
 				}
 			/>
 			<Typography variant="title" className="text-4xl" as="h1">
-				Teste
+				Hello World!
 			</Typography>
 			<DiscardButton />
 			<Button onClick={() => console.log("clicou")}>CONFIRMAR PEDIDO</Button>
