@@ -35,7 +35,11 @@ const config: Config = {
 			text: ["var(--font-roboto)"],
 			title: ["var(--font-baloo2)"],
 		},
-		extend: {},
+		extend: {
+			boxShadow: {
+				"inner-border": "0 0 0 1px #8047F8",
+			},
+		},
 	},
 	plugins: [],
 };

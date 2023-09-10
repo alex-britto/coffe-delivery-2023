@@ -1,4 +1,4 @@
-import { HTMLAttributes, InputHTMLAttributes } from "react";
+import { ComponentProps } from "react";
 import styled, { W } from "windstitch";
 
 import { Minus, Plus } from "@phosphor-icons/react";
@@ -7,32 +7,30 @@ interface NumberInputProps extends W.Infer<typeof Container> {
 	value: number;
 	onIncreaseClick: () => void;
 	onDecreaseClick: () => void;
-	inputProps?: InputHTMLAttributes<HTMLInputElement>;
+	inputProps?: ComponentProps<"input">;
 }
 
-export function NumberInput({
+export const NumberInput = ({
 	value,
 	onIncreaseClick,
 	onDecreaseClick,
 	inputProps,
 	...rest
-}: NumberInputProps) {
-	return (
-		<Container {...rest}>
-			<Minus
-				size={14}
-				className="fill-purple-default cursor-pointer"
-				onClick={() => value > 0 && onDecreaseClick()}
-			/>
-			<StyledInput type="number" value={value} {...inputProps} />
-			<Plus
-				size={14}
-				className="fill-purple-default cursor-pointer"
-				onClick={onIncreaseClick}
-			/>
-		</Container>
-	);
-}
+}: NumberInputProps) => (
+	<Container {...rest}>
+		<Minus
+			size={14}
+			className="fill-purple-default cursor-pointer"
+			onClick={() => value > 0 && onDecreaseClick()}
+		/>
+		<StyledInput type="number" value={value} {...inputProps} />
+		<Plus
+			size={14}
+			className="fill-purple-default cursor-pointer"
+			onClick={onIncreaseClick}
+		/>
+	</Container>
+);
 
 const Container = styled.div(`
 w-fit

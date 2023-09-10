@@ -5,23 +5,21 @@ import styled, { W } from "windstitch";
 export const DiscardButton = ({ ...rest }: W.Infer<typeof StyledButton>) => {
 	return (
 		<StyledButton {...rest}>
-			REMOVER
 			<Trash size={16} className="fill-purple-default" />
+			REMOVER
 		</StyledButton>
 	);
 };
 
-const StyledButton = styled.button(
-	`
+const StyledButton = styled.button(`
 	w-fit
+	text-xs
 	bg-base-button
 	hover:bg-base-hover
-	px-2
-	py-1 
+	p-2
 	rounded-md
 	flex
 	gap-1
 	items-center
 	text-base-text
-	`
-);
+`);

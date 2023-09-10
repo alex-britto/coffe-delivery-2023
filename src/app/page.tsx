@@ -4,13 +4,32 @@ import { useState } from "react";
 
 import { ShoppingCart } from "@phosphor-icons/react";
 
-import { Button, DiscardButton, Typography } from "@/components";
-import { NumberInput } from "@/components/NumberInput/NumberInput";
+import {
+	Button,
+	DiscardButton,
+	Typography,
+	NumberInput,
+	SelectInputList,
+} from "@/components";
 
 export default function Home() {
 	const [numberInputValue, setNumberInputValue] = useState(0);
+	const selectInputItems = [
+		{
+			id: "item1",
+			title: "cartão de crédito",
+		},
+		{
+			id: "item2",
+			title: "cartão de débito",
+		},
+	];
 	return (
 		<div className="grid gap-4">
+			<SelectInputList
+				items={selectInputItems}
+				onClick={(item) => console.log("clicou no item", item)}
+			/>
 			<NumberInput
 				value={numberInputValue}
 				onIncreaseClick={() =>
