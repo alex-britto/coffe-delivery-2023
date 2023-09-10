@@ -1,16 +1,26 @@
 "use client";
 
-import styled from "windstitch";
+import { useState } from "react";
 
-import { Button } from "@/components";
 import { ShoppingCart } from "@phosphor-icons/react";
-import { DiscardButton } from "@/components/DiscardButton/DiscardButton";
-import { Typography } from "@/components/Typography/Typography";
+
+import { Button, DiscardButton, Typography } from "@/components";
+import { NumberInput } from "@/components/NumberInput/NumberInput";
 
 export default function Home() {
+	const [numberInputValue, setNumberInputValue] = useState(0);
 	return (
 		<div className="grid gap-4">
-			<Typography variant="title" className="text-4xl" as="h3">
+			<NumberInput
+				value={numberInputValue}
+				onIncreaseClick={() =>
+					setNumberInputValue((numberInputValue) => numberInputValue + 1)
+				}
+				onDecreaseClick={() =>
+					setNumberInputValue((numberInputValue) => numberInputValue - 1)
+				}
+			/>
+			<Typography variant="title" className="text-4xl" as="h1">
 				Teste
 			</Typography>
 			<DiscardButton />
@@ -31,11 +41,3 @@ export default function Home() {
 		</div>
 	);
 }
-
-const MyTitle = styled.h1(
-	`
-	font-bold 
-	text-4xl 
-	text-yellow-dark
-	`
-);

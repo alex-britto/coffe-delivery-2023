@@ -29,6 +29,7 @@ const config: Config = {
 				card: "#F3F2F2",
 				background: "#FAFAFA",
 			},
+			transparent: "#00000000",
 		},
 		fontFamily: {
 			text: ["var(--font-roboto)"],
