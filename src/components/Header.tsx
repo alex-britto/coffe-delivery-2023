@@ -33,8 +33,7 @@ export default function Header() {
 const Container = styled.header(
 	`
 		w-full 
-		flex
-		px-40 
+		flex 
 		py-8
 		justify-between
 	`

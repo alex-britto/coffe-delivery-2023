@@ -1,13 +1,5 @@
-import { getAllProducts } from "@/requests/api";
-import styled from "windstitch";
+import ProductCatalog from "@/components/sections/ProductCatalog";
 
-export default async function Page() {
-	const products = await getAllProducts();
-	return (
-		<div>
-			{products.map((item) => (
-				<div key={item.id}>{item.title}</div>
-			))}
-		</div>
-	);
+export default function Page() {
+	return <ProductCatalog />;
 }

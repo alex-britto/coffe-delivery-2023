@@ -12,7 +12,11 @@ export const getSingleProduct = async (productId: string) => {
 };
 
 export const getAllProducts = async () => {
-	const response = await fetch("http://localhost:4000/coffees/");
+	const response = await fetch("http://localhost:4000/coffees/", {
+		next: {
+			revalidate: 30,
+		},
+	});
 	const data: ProductResponse[] = await response.json();
 
 	return data;
