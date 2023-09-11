@@ -29,7 +29,7 @@ export const CartItem = ({
 				height={64}
 				className="transition-opacity opacity-0 duration-[2s]"
 				onLoadingComplete={(img) => img.classList.remove("opacity-0")}
-				priority
+				quality={100}
 			/>
 			<div>
 				<Typography className="text-base-subtitle mb-2">{title}</Typography>

@@ -36,7 +36,7 @@ export const ProductCard = ({
 				height={100}
 				className="transition-opacity opacity-0 duration-[2s] -mt-10 mb-3"
 				onLoadingComplete={(img) => img.classList.remove("opacity-0")}
-				priority
+				quality={100}
 			/>
 			<ul className="flex gap-2 mt-3">
 				{tags.map((item) => (
