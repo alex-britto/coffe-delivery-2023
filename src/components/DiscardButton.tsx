@@ -2,14 +2,16 @@ import { Trash } from "@phosphor-icons/react";
 
 import styled, { W } from "windstitch";
 
-export const DiscardButton = ({ ...rest }: W.Infer<typeof StyledButton>) => {
+export default function DiscardButton({
+	...rest
+}: W.Infer<typeof StyledButton>) {
 	return (
 		<StyledButton {...rest}>
 			<Trash size={16} className="fill-purple-default" />
 			REMOVER
 		</StyledButton>
 	);
-};
+}
 
 const StyledButton = styled.button(`
 	w-fit

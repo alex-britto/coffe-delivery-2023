@@ -8,13 +8,13 @@ interface ButtonProps extends W.Infer<typeof StyledButton> {
 	badgeCount?: number;
 }
 
-export const Button = ({
+export default function Button({
 	children,
 	icon,
 	badgeCount,
 	baseColor,
 	...rest
-}: ButtonProps) => {
+}: ButtonProps) {
 	return (
 		<StyledButton baseColor={baseColor} hasIcon={!!icon} {...rest}>
 			{children}
@@ -22,7 +22,7 @@ export const Button = ({
 			{badgeCount && <Badge>{badgeCount}</Badge>}
 		</StyledButton>
 	);
-};
+}
 
 const StyledButton = styled.button(
 	`

@@ -1,10 +1,15 @@
+"use client";
+
 import { useState } from "react";
 import Image from "next/image";
 
 import styled, { W } from "windstitch";
 
-import { Button, NumberInput, Typography } from "..";
 import { ShoppingCart } from "@phosphor-icons/react";
+
+import Typography from "@/components/Typography";
+import NumberInput from "@/components/NumberInput";
+import Button from "@/components/Button";
 
 interface ProductCardProps extends W.Infer<typeof Container> {
 	imageSrc: string;
@@ -16,7 +21,7 @@ interface ProductCardProps extends W.Infer<typeof Container> {
 	onCartClick: (e: number) => void;
 }
 
-export const ProductCard = ({
+export default function ProductCard({
 	imageSrc,
 	tags,
 	title,
@@ -25,7 +30,7 @@ export const ProductCard = ({
 	quantity = 0,
 	onCartClick,
 	...rest
-}: ProductCardProps) => {
+}: ProductCardProps) {
 	const [numberInputValue, setNumberInputValue] = useState(quantity);
 	return (
 		<Container {...rest}>
@@ -79,7 +84,7 @@ export const ProductCard = ({
 			</div>
 		</Container>
 	);
-};
+}
 
 const Container = styled.div(`
 	bg-base-card

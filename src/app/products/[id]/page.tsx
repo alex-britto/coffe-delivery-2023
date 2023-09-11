@@ -1,10 +1,10 @@
 import { getSingleProduct } from "@/requests/api";
 
-interface ProductProps {
+interface PageProps {
 	params: { id: string };
 }
 
-const Product = async ({ params }: ProductProps) => {
+const Page = async ({ params }: PageProps) => {
 	const myProduct = await getSingleProduct(params.id);
 	return (
 		<div>
@@ -14,4 +14,4 @@ const Product = async ({ params }: ProductProps) => {
 	);
 };
 
-export default Product;
+export default Page;

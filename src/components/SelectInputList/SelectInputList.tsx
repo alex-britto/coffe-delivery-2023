@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 
 import { SelectItem } from "./SelectItem";
@@ -11,7 +13,7 @@ interface SelectInputListProps {
 	onClick?: (e: string) => void;
 }
 
-export function SelectInputList({
+export default function SelectInputList({
 	items,
 	selectedItemDefault,
 	onClick,

@@ -1,6 +1,6 @@
 import styled from "windstitch";
 
-export const Typography = styled.p(``, {
+const Typography = styled.p(``, {
 	variants: {
 		variant: {
 			title: `font-title`,
@@ -11,3 +11,5 @@ export const Typography = styled.p(``, {
 		variant: "text",
 	},
 });
+
+export default Typography;

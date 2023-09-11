@@ -1,3 +1,5 @@
+"use client";
+
 import { ComponentProps } from "react";
 import styled, { W } from "windstitch";
 
@@ -10,27 +12,29 @@ interface NumberInputProps extends W.Infer<typeof Container> {
 	inputProps?: ComponentProps<"input">;
 }
 
-export const NumberInput = ({
+export default function NumberInput({
 	value,
 	onIncreaseClick,
 	onDecreaseClick,
 	inputProps,
 	...rest
-}: NumberInputProps) => (
-	<Container {...rest}>
-		<Minus
-			size={14}
-			className="fill-purple-default hover:fill-purple-dark cursor-pointer"
-			onClick={() => value > 0 && onDecreaseClick()}
-		/>
-		<StyledInput type="number" value={value} disabled {...inputProps} />
-		<Plus
-			size={14}
-			className="fill-purple-default hover:fill-purple-dark cursor-pointer"
-			onClick={onIncreaseClick}
-		/>
-	</Container>
-);
+}: NumberInputProps) {
+	return (
+		<Container {...rest}>
+			<Minus
+				size={14}
+				className="fill-purple-default hover:fill-purple-dark cursor-pointer"
+				onClick={() => value > 0 && onDecreaseClick()}
+			/>
+			<StyledInput type="number" value={value} disabled {...inputProps} />
+			<Plus
+				size={14}
+				className="fill-purple-default hover:fill-purple-dark cursor-pointer"
+				onClick={onIncreaseClick}
+			/>
+		</Container>
+	);
+}
 
 const Container = styled.div(`
 w-fit
