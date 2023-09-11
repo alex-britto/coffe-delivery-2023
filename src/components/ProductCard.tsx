@@ -103,6 +103,16 @@ const Container = styled.div(`
 `);
 
 const ProductTag = styled(Typography, {
-	className:
-		"bg-yellow-light text-yellow-dark uppercase px-2 py-1 text-xxs rounded-full w-fit font-bold mb-4",
+	className: `
+		bg-yellow-light 
+		text-yellow-dark 
+		uppercase 
+		px-2 
+		py-1 
+		text-xxs 
+		rounded-full 
+		w-fit 
+		font-bold 
+		mb-4
+	`,
 });

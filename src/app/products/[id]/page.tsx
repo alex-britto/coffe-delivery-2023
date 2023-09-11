@@ -4,14 +4,12 @@ interface PageProps {
 	params: { id: string };
 }
 
-const Page = async ({ params }: PageProps) => {
-	const myProduct = await getSingleProduct(params.id);
+export default async function Page({ params }: PageProps) {
+	const product = await getSingleProduct(params.id);
 	return (
 		<div>
 			<h1>Product: {params.id}</h1>
-			<pre>{myProduct.title}</pre>
+			<pre>{product.title}</pre>
 		</div>
 	);
-};
-
-export default Page;
+}
