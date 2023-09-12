@@ -1,20 +1,20 @@
-import styled, { W } from "windstitch";
-import { CreditCard } from "@phosphor-icons/react";
+import styled, { W } from 'windstitch'
+import { CreditCard } from '@phosphor-icons/react'
 
 interface SelectItemProps extends W.Infer<typeof Container> {
-	title: string;
+	title: string
 }
 
 export const SelectItem = ({
-	title = "cartão de teste",
+	title = 'cartão de teste',
 	isSelected,
 	...rest
 }: SelectItemProps) => (
 	<Container isSelected={isSelected} {...rest}>
-		<CreditCard size={16} className="fill-purple-default" />
+		<CreditCard size={16} className='fill-purple-default' />
 		{title}
 	</Container>
-);
+)
 
 const Container = styled.div(
 	`
@@ -33,8 +33,8 @@ const Container = styled.div(
 		variants: {
 			isSelected: (isSelected: boolean) =>
 				isSelected
-					? "bg-purple-light shadow-inner-border"
-					: "hover:bg-base-hover",
+					? 'bg-purple-light shadow-inner-border'
+					: 'hover:bg-base-hover',
 		},
-	}
-);
+	},
+)

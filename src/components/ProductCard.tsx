@@ -1,24 +1,24 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import Image from "next/image";
+import { useState } from 'react'
+import Image from 'next/image'
 
-import styled, { W } from "windstitch";
+import styled, { W } from 'windstitch'
 
-import { ShoppingCart } from "@phosphor-icons/react";
+import { ShoppingCart } from '@phosphor-icons/react'
 
-import Typography from "@/components/Typography";
-import NumberInput from "@/components/NumberInput";
-import Button from "@/components/Button";
+import Typography from '@/components/Typography'
+import NumberInput from '@/components/NumberInput'
+import Button from '@/components/Button'
 
 interface ProductCardProps extends W.Infer<typeof Container> {
-	imageSrc: string;
-	tags: string[];
-	title: string;
-	description: string;
-	price: number;
-	quantity?: number;
-	onCartClick: (e: number) => void;
+	imageSrc: string
+	tags: string[]
+	title: string
+	description: string
+	price: number
+	quantity?: number
+	onCartClick: (e: number) => void
 }
 
 export default function ProductCard({
@@ -31,7 +31,7 @@ export default function ProductCard({
 	onCartClick,
 	...rest
 }: ProductCardProps) {
-	const [numberInputValue, setNumberInputValue] = useState(quantity);
+	const [numberInputValue, setNumberInputValue] = useState(quantity)
 	return (
 		<Container {...rest}>
 			<Image
@@ -39,33 +39,33 @@ export default function ProductCard({
 				alt={title}
 				width={100}
 				height={100}
-				className="transition-opacity opacity-0 duration-[2s] -mt-10 mb-3"
-				onLoadingComplete={(img) => img.classList.remove("opacity-0")}
+				className='-mt-10 mb-3 opacity-0 transition-opacity duration-[2s]'
+				onLoadingComplete={(img) => img.classList.remove('opacity-0')}
 				quality={100}
 			/>
-			<ul className="flex gap-2 mt-3">
+			<ul className='mt-3 flex gap-2'>
 				{tags.map((item) => (
 					<li key={item}>
 						<ProductTag>{item}</ProductTag>
 					</li>
 				))}
 			</ul>
-			<Typography variant="title" className="text-xl text-base-subtitle mb-1">
+			<Typography variant='title' className='mb-1 text-xl text-base-subtitle'>
 				{title}
 			</Typography>
-			<Typography className="text-sm text-base-label text-center">
+			<Typography className='text-center text-sm text-base-label'>
 				{description}
 			</Typography>
-			<div className="w-full flex justify-between mt-8">
-				<div className="flex items-center">
-					<Typography className="text-xs mr-1">R$</Typography>
-					<Typography variant="title" className="text-xl">
-						{new Intl.NumberFormat("pt-Br", {
+			<div className='mt-8 flex w-full justify-between'>
+				<div className='flex items-center'>
+					<Typography className='mr-1 text-xs'>R$</Typography>
+					<Typography variant='title' className='text-xl'>
+						{new Intl.NumberFormat('pt-Br', {
 							minimumFractionDigits: 2,
 						}).format(price)}
 					</Typography>
 				</div>
-				<div className="flex gap-2">
+				<div className='flex gap-2'>
 					<NumberInput
 						value={numberInputValue}
 						onIncreaseClick={() =>
@@ -76,14 +76,14 @@ export default function ProductCard({
 						}
 					/>
 					<Button
-						baseColor="secondary"
-						icon={<ShoppingCart weight="fill" />}
+						baseColor='secondary'
+						icon={<ShoppingCart weight='fill' />}
 						onClick={() => onCartClick(numberInputValue)}
 					/>
 				</div>
 			</div>
 		</Container>
-	);
+	)
 }
 
 const Container = styled.div(`
@@ -100,19 +100,19 @@ const Container = styled.div(`
 	py-5
 	mt-5
 	shadow-md
-`);
+`)
 
 const ProductTag = styled(Typography, {
 	className: `
+		mb-4 
+		w-fit 
+		rounded-full 
 		bg-yellow-light 
-		text-yellow-dark 
-		uppercase 
 		px-2 
 		py-1 
 		text-xxs 
-		rounded-full 
-		w-fit 
 		font-bold 
-		mb-4
+		uppercase 
+		text-yellow-dark
 	`,
-});
+})

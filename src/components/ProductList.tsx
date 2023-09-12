@@ -1,20 +1,20 @@
-"use client";
+'use client'
 
-import { ProductResponse } from "@/interfaces/products";
+import { ProductResponse } from '@/interfaces/products'
 
-import ProductCard from "@/components/ProductCard";
+import ProductCard from '@/components/ProductCard'
 
 interface ProductListProps {
-	productList: ProductResponse[];
+	productList: ProductResponse[]
 }
 
 export default function ProductList({ productList }: ProductListProps) {
 	return (
-		<div className="grid grid-cols-4 w-fit gap-8">
+		<div className='grid w-fit grid-cols-4 gap-8'>
 			{productList.map((item) => (
 				<ProductCard
 					key={item.id}
-					imageSrc="/images/coffees/americano.png"
+					imageSrc='/images/coffees/americano.png'
 					tags={item.tags}
 					title={item.title}
 					description={item.description}
@@ -23,5 +23,5 @@ export default function ProductList({ productList }: ProductListProps) {
 				/>
 			))}
 		</div>
-	);
+	)
 }

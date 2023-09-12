@@ -1,16 +1,16 @@
-import { Trash } from "@phosphor-icons/react";
+import { Trash } from '@phosphor-icons/react'
 
-import styled, { W } from "windstitch";
+import styled, { W } from 'windstitch'
 
 export default function DiscardButton({
 	...rest
 }: W.Infer<typeof StyledButton>) {
 	return (
 		<StyledButton {...rest}>
-			<Trash size={16} className="fill-purple-default" />
+			<Trash size={16} className='fill-purple-default' />
 			REMOVER
 		</StyledButton>
-	);
+	)
 }
 
 const StyledButton = styled.button(`
@@ -24,4 +24,4 @@ const StyledButton = styled.button(`
 	gap-1
 	items-center
 	text-base-text
-`);
+`)

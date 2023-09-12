@@ -1,14 +1,14 @@
-"use client";
+'use client'
 
-import { ChangeEvent, ComponentProps } from "react";
-import styled, { W } from "windstitch";
+import { ChangeEvent, ComponentProps } from 'react'
+import styled, { W } from 'windstitch'
 
-interface TextFieldProps extends Omit<W.Infer<typeof Container>, "onChange"> {
-	value: string;
-	onChange: (value: string) => void;
-	placeholder?: string;
-	isRequired?: boolean;
-	inputProps?: ComponentProps<"input">;
+interface TextFieldProps extends Omit<W.Infer<typeof Container>, 'onChange'> {
+	value: string
+	onChange: (value: string) => void
+	placeholder?: string
+	isRequired?: boolean
+	inputProps?: ComponentProps<'input'>
 }
 
 export default function TextField({
@@ -22,7 +22,7 @@ export default function TextField({
 	return (
 		<Container {...rest}>
 			<StyledInput
-				type="text"
+				type='text'
 				placeholder={placeholder}
 				value={value}
 				onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -31,10 +31,10 @@ export default function TextField({
 				{...inputProps}
 			/>
 			{!isRequired && !value && (
-				<span className="text-base-label italic">Opcional</span>
+				<span className='italic text-base-label'>Opcional</span>
 			)}
 		</Container>
-	);
+	)
 }
 
 const Container = styled.div(
@@ -50,8 +50,8 @@ const Container = styled.div(
 	text-sm
 
 	focus-within:border-yellow-dark
-`
-);
+`,
+)
 
 const StyledInput = styled.input(
 	`
@@ -61,5 +61,5 @@ const StyledInput = styled.input(
 	placeholder:text-base-label
 
 	focus-visible:outline-none
-`
-);
+`,
+)

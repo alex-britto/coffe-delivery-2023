@@ -1,19 +1,19 @@
-"use client";
+'use client'
 
-import Image from "next/image";
-import styled, { W } from "windstitch";
+import Image from 'next/image'
+import styled, { W } from 'windstitch'
 
-import Typography from "@/components/Typography";
-import NumberInput from "@/components/NumberInput";
-import DiscardButton from "@/components/DiscardButton";
+import DiscardButton from '@/components/DiscardButton'
+import NumberInput from '@/components/NumberInput'
+import Typography from '@/components/Typography'
 
 interface CartItemProps extends W.Infer<typeof Container> {
-	imageSrc: string;
-	title: string;
-	price: number;
-	quantity: number;
-	onQuantityChange: (e: number) => void;
-	onRemoveClick: (itemId: string) => void;
+	imageSrc: string
+	title: string
+	price: number
+	quantity: number
+	onQuantityChange: (e: number) => void
+	onRemoveClick: (itemId: string) => void
 }
 
 export default function CartItem({
@@ -26,19 +26,19 @@ export default function CartItem({
 }: CartItemProps) {
 	return (
 		<Container>
-			<div className="flex gap-5">
+			<div className='flex gap-5'>
 				<Image
 					src={imageSrc}
 					alt={title}
 					width={64}
 					height={64}
-					className="transition-opacity opacity-0 duration-[2s]"
-					onLoadingComplete={(img) => img.classList.remove("opacity-0")}
+					className='opacity-0 transition-opacity duration-[2s]'
+					onLoadingComplete={(img) => img.classList.remove('opacity-0')}
 					quality={100}
 				/>
 				<div>
-					<Typography className="text-base-subtitle mb-2">{title}</Typography>
-					<div className="flex gap-2">
+					<Typography className='mb-2 text-base-subtitle'>{title}</Typography>
+					<div className='flex gap-2'>
 						<NumberInput
 							value={quantity}
 							onIncreaseClick={() => onQuantityChange(quantity + 1)}
@@ -48,14 +48,14 @@ export default function CartItem({
 					</div>
 				</div>
 			</div>
-			<Typography variant="title">
-				R${" "}
-				{new Intl.NumberFormat("pt-Br", {
+			<Typography variant='title'>
+				R${' '}
+				{new Intl.NumberFormat('pt-Br', {
 					minimumFractionDigits: 2,
 				}).format(price)}
 			</Typography>
 		</Container>
-	);
+	)
 }
 
 const Container = styled.div(`
@@ -67,4 +67,4 @@ const Container = styled.div(`
 	py-2
 	rounded
 	shadow-md
-`);
+`)

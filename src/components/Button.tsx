@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react'
 
-import styled, { W } from "windstitch";
+import styled, { W } from 'windstitch'
 
 interface ButtonProps extends W.Infer<typeof StyledButton> {
-	children?: ReactNode;
-	icon?: ReactNode;
-	badgeCount?: number;
+	children?: ReactNode
+	icon?: ReactNode
+	badgeCount?: number
 }
 
 export default function Button({
@@ -21,7 +21,7 @@ export default function Button({
 			{icon}
 			{badgeCount && <Badge>{badgeCount}</Badge>}
 		</StyledButton>
-	);
+	)
 }
 
 const StyledButton = styled.button(
@@ -47,14 +47,14 @@ const StyledButton = styled.button(
 				bg-yellow-light
 				`,
 			},
-			hasIcon: (hasIcon: boolean) => (hasIcon ? "w-fit" : "w-full py-3"),
+			hasIcon: (hasIcon: boolean) => (hasIcon ? 'w-fit' : 'w-full py-3'),
 		},
 		defaultVariants: {
-			baseColor: "primary",
+			baseColor: 'primary',
 			hasIcon: false,
 		},
-	}
-);
+	},
+)
 
 const Badge = styled.div(
 	`
@@ -70,5 +70,5 @@ const Badge = styled.div(
 		bg-yellow-dark
 		cursor-default
 		text-xs
-`
-);
+`,
+)

@@ -1,5 +1,5 @@
-import Hero from "@/components/sections/Hero";
-import ProductCatalog from "@/components/sections/ProductCatalog";
+import Hero from '@/components/sections/Hero'
+import ProductCatalog from '@/components/sections/ProductCatalog'
 
 export default function Page() {
 	return (
@@ -11,5 +11,5 @@ export default function Page() {
 				<ProductCatalog />
 			</section>
 		</>
-	);
+	)
 }

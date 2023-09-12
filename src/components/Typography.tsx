@@ -1,4 +1,4 @@
-import styled from "windstitch";
+import styled from 'windstitch'
 
 const Typography = styled.p(``, {
 	variants: {
@@ -8,8 +8,8 @@ const Typography = styled.p(``, {
 		},
 	},
 	defaultVariants: {
-		variant: "text",
+		variant: 'text',
 	},
-});
+})
 
-export default Typography;
+export default Typography

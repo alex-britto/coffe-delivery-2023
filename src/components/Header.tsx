@@ -1,33 +1,33 @@
-"use client";
+'use client'
 
-import router from "next/router";
-import Image from "next/image";
+import router from 'next/router'
+import Image from 'next/image'
 
-import styled from "windstitch";
-import { ShoppingCart } from "@phosphor-icons/react";
+import styled from 'windstitch'
+import { ShoppingCart } from '@phosphor-icons/react'
 
-import Button from "@/components/Button";
+import Button from '@/components/Button'
 
 export default function Header() {
 	return (
-		<Container className="">
+		<Container className=''>
 			<Image
-				src="/images/logo.png"
-				alt="logo"
+				src='/images/logo.png'
+				alt='logo'
 				width={85}
 				height={40}
 				quality={100}
 			/>
 			<Button
-				baseColor="tertiary"
+				baseColor='tertiary'
 				icon={
-					<ShoppingCart size={22} weight="fill" className="fill-yellow-dark" />
+					<ShoppingCart size={22} weight='fill' className='fill-yellow-dark' />
 				}
-				onClick={() => router.push("")}
+				onClick={() => router.push('')}
 				badgeCount={3}
 			/>
 		</Container>
-	);
+	)
 }
 
 const Container = styled.header(
@@ -36,5 +36,5 @@ const Container = styled.header(
 		flex 
 		py-8
 		justify-between
-	`
-);
+	`,
+)
