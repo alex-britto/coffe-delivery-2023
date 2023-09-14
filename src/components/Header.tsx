@@ -1,14 +1,16 @@
 'use client'
 
-import router from 'next/router'
 import Image from 'next/image'
+import router from 'next/router'
 
-import styled from 'windstitch'
 import { ShoppingCart } from '@phosphor-icons/react'
+import styled from 'windstitch'
 
 import Button from '@/components/Button'
+import { useCartStore } from '@/globalStates/useCartStore'
 
 export default function Header() {
+	const { cart } = useCartStore()
 	return (
 		<Container className=''>
 			<Image
@@ -24,7 +26,7 @@ export default function Header() {
 					<ShoppingCart size={22} weight='fill' className='fill-yellow-dark' />
 				}
 				onClick={() => router.push('')}
-				badgeCount={3}
+				badgeCount={cart.length > 0 ? cart.length : undefined}
 			/>
 		</Container>
 	)
