@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import router from 'next/router'
+import { useRouter } from 'next/navigation'
 
 import { ShoppingCart } from '@phosphor-icons/react'
 import styled from 'windstitch'
@@ -11,8 +11,9 @@ import { useCartStore } from '@/globalStates/useCartStore'
 
 export default function Header() {
 	const { cart } = useCartStore()
+	const router = useRouter()
 	return (
-		<Container className=''>
+		<Container>
 			<Image
 				src='/images/logo.png'
 				alt='logo'
@@ -25,7 +26,7 @@ export default function Header() {
 				icon={
 					<ShoppingCart size={22} weight='fill' className='fill-yellow-dark' />
 				}
-				onClick={() => router.push('')}
+				onClick={() => router.push('/checkout')}
 				badgeCount={cart.length > 0 ? cart.length : undefined}
 			/>
 		</Container>
@@ -36,7 +37,12 @@ const Container = styled.header(
 	`
 		w-full 
 		flex 
+		sticky top-0
+		z-10
 		py-8
+		px-44
 		justify-between
+		bg-white
+		shadow-md
 	`,
 )

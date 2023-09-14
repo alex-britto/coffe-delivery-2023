@@ -1,15 +1,15 @@
 'use client'
 
-import { useState } from 'react'
 import Image from 'next/image'
+import { useState } from 'react'
 
 import styled, { W } from 'windstitch'
 
 import { ShoppingCart } from '@phosphor-icons/react'
 
-import Typography from '@/components/Typography'
-import NumberInput from '@/components/NumberInput'
 import Button from '@/components/Button'
+import NumberInput from '@/components/NumberInput'
+import Typography from '@/components/Typography'
 
 interface ProductCardProps extends W.Infer<typeof Container> {
 	imageSrc: string
@@ -88,7 +88,7 @@ export default function ProductCard({
 
 const Container = styled.div(`
 	bg-base-card
-	w-64
+	w-[17rem]
 	rounded-tr-3xl
 	rounded-bl-3xl
 	rounded-tl-md

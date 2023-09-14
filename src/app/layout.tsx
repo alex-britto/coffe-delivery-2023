@@ -14,9 +14,9 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<html lang='en' className={`${robotoFont.variable} ${baloo2Font.variable}`}>
-			<body className='mx-auto max-w-[1200px] pb-28 font-text text-base-text'>
+			<body className='font-text text-base-text'>
 				<Header />
-				{children}
+				<main className='mx-auto max-w-[1200px] pb-28'>{children}</main>
 			</body>
 		</html>
 	)
