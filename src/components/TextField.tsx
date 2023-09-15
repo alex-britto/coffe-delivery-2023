@@ -1,43 +1,45 @@
 'use client'
 
-import { ChangeEvent, ComponentProps } from 'react'
+import Typography from '@/components/Typography'
+import { ComponentProps } from 'react'
 import styled, { W } from 'windstitch'
 
 interface TextFieldProps extends Omit<W.Infer<typeof Container>, 'onChange'> {
-	value: string
-	onChange: (value: string) => void
+	errorMessage?: string
 	placeholder?: string
 	isRequired?: boolean
 	inputProps?: ComponentProps<'input'>
 }
 
 export default function TextField({
-	value,
-	onChange,
+	errorMessage,
 	placeholder,
-	isRequired,
+	isRequired = true,
 	inputProps,
 	...rest
 }: TextFieldProps) {
 	return (
 		<Container {...rest}>
-			<StyledInput
-				type='text'
-				placeholder={placeholder}
-				value={value}
-				onChange={(e: ChangeEvent<HTMLInputElement>) =>
-					onChange(e.target.value)
-				}
-				{...inputProps}
-			/>
-			{!isRequired && !value && (
-				<span className='italic text-base-label'>Opcional</span>
+			<InputContainer>
+				<StyledInput type='text' placeholder={placeholder} {...inputProps} />
+				{!isRequired && !inputProps?.value && (
+					<span className='italic text-base-label'>Opcional</span>
+				)}
+			</InputContainer>
+			{!!errorMessage && (
+				<Typography className='mt-2 text-sm text-red'>
+					{errorMessage}
+				</Typography>
 			)}
 		</Container>
 	)
 }
 
-const Container = styled.div(
+const Container = styled.div(`
+
+`)
+
+const InputContainer = styled.div(
 	`
 	flex
 	gap-1

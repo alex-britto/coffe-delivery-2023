@@ -28,7 +28,7 @@ export default function ProductList({ productList }: ProductListProps) {
 			{productList.map((item) => (
 				<ProductCard
 					key={item.id}
-					imageSrc='/images/coffees/americano.png'
+					imageSrc={item.imageSrc}
 					tags={item.tags}
 					title={item.title}
 					description={item.description}

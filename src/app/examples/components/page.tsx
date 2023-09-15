@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 
 import { ShoppingCart } from '@phosphor-icons/react'
 
@@ -44,7 +44,14 @@ export default function Page() {
 				price={9.9}
 				onCartClick={(e: number) => console.log('Itens selecionados:', e)}
 			/>
-			<TextField placeholder='Label' value={text} onChange={setText} />
+			<TextField
+				placeholder='Label'
+				inputProps={{
+					value: text,
+					onChange: (e: ChangeEvent<HTMLInputElement>) =>
+						setText(e.target.value),
+				}}
+			/>
 			<SelectInputList
 				items={selectInputItems}
 				onClick={(item) => console.log('clicou no item', item)}

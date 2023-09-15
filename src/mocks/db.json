@@ -2,7 +2,7 @@
 	"coffees": [
 		{
 			"id": "c1",
-			"imageSrc": "/images/coffees/Americano.png",
+			"imageSrc": "/images/coffees/americano.png",
 			"tags": ["Tradicional"],
 			"title": "Expresso Americano",
 			"description": "Expresso diluído, menos intenso que o tradicional",
@@ -10,7 +10,7 @@
 		},
 		{
 			"id": "c2",
-			"imageSrc": "/images/coffees/Árabe.png",
+			"imageSrc": "/images/coffees/arabe.png",
 			"tags": ["Especial"],
 			"title": "Árabe",
 			"description": "Bebida preparada com grãos de café árabe e especiarias",
@@ -18,7 +18,7 @@
 		},
 		{
 			"id": "c3",
-			"imageSrc": "/images/coffees/Café com Leite.png",
+			"imageSrc": "/images/coffees/cafe_com_leite.png",
 			"tags": ["Tradicional", "Com Leite"],
 			"title": "Café com Leite",
 			"description": "Meio a meio de expresso tradicional com leite vaporizado",
@@ -26,7 +26,7 @@
 		},
 		{
 			"id": "c4",
-			"imageSrc": "/images/coffees/Café Gelado.png",
+			"imageSrc": "/images/coffees/cafe_gelado.png",
 			"tags": ["Tradicional", "Gelado"],
 			"title": "Expresso Gelado",
 			"description": "Bebida preparada com café expresso e cubos de gelo",
@@ -34,7 +34,7 @@
 		},
 		{
 			"id": "c5",
-			"imageSrc": "/images/coffees/Capuccino.png",
+			"imageSrc": "/images/coffees/capuccino.png",
 			"tags": ["Tradicional", "Com Leite"],
 			"title": "Capuccino",
 			"description": "Bebida com canela feita de doses iguais de café, leite e espuma",
@@ -42,7 +42,7 @@
 		},
 		{
 			"id": "c6",
-			"imageSrc": "/images/coffees/Chocolate Quente.png",
+			"imageSrc": "/images/coffees/chocolate_quente.png",
 			"tags": ["Especial", "Com Leite"],
 			"title": "Chocolate Quente",
 			"description": "Bebida feita com chocolate dissolvido no leite quente e café",
@@ -50,7 +50,7 @@
 		},
 		{
 			"id": "c7",
-			"imageSrc": "/images/coffees/Cubano.png",
+			"imageSrc": "/images/coffees/cubano.png",
 			"tags": ["Especial", "Alcoólico", "Gelado"],
 			"title": "Cubano",
 			"description": "Drink gelado de café expresso com rum, creme de leite e hortelã",
@@ -58,7 +58,7 @@
 		},
 		{
 			"id": "c8",
-			"imageSrc": "/images/coffees/Expresso Cremoso.png",
+			"imageSrc": "/images/coffees/expresso_cremoso.png",
 			"tags": ["Tradicional"],
 			"title": "Expresso Cremoso",
 			"description": "Café expresso tradicional com espuma cremosa",
@@ -66,7 +66,7 @@
 		},
 		{
 			"id": "c9",
-			"imageSrc": "/images/coffees/Expresso.png",
+			"imageSrc": "/images/coffees/expresso.png",
 			"tags": ["Tradicional"],
 			"title": "Expresso Tradicional",
 			"description": "O tradicional café feito com água quente e grãos moídos",
@@ -74,7 +74,7 @@
 		},
 		{
 			"id": "c10",
-			"imageSrc": "/images/coffees/Havaiano.png",
+			"imageSrc": "/images/coffees/havaiano.png",
 			"tags": ["Especial"],
 			"title": "Havaiano",
 			"description": "Bebida adocicada preparada com café e leite de coco",
@@ -82,7 +82,7 @@
 		},
 		{
 			"id": "c11",
-			"imageSrc": "/images/coffees/Irlandês.png",
+			"imageSrc": "/images/coffees/irlandes.png",
 			"tags": ["Especial", "Alcoólico"],
 			"title": "Irlandês",
 			"description": "Bebida a base de café, uísque irlandês, açúcar e chantilly",
@@ -90,7 +90,7 @@
 		},
 		{
 			"id": "c12",
-			"imageSrc": "/images/coffees/Latte.png",
+			"imageSrc": "/images/coffees/latte.png",
 			"tags": ["Tradicional", "Com Leite"],
 			"title": "Latte",
 			"description": "Uma dose de café expresso com o dobro de leite e espuma cremosa",
@@ -98,7 +98,7 @@
 		},
 		{
 			"id": "c13",
-			"imageSrc": "/images/coffees/Macchiato.png",
+			"imageSrc": "/images/coffees/macchiato.png",
 			"tags": ["Tradicional", "Com Leite"],
 			"title": "Macchiato",
 			"description": "Café expresso misturado com um pouco de leite quente e espuma",
@@ -106,7 +106,7 @@
 		},
 		{
 			"id": "c14",
-			"imageSrc": "/images/coffees/Mochaccino.png",
+			"imageSrc": "/images/coffees/mochaccino.png",
 			"tags": ["Tradicional", "Com Leite"],
 			"title": "Mochaccino",
 			"description": "Café expresso com calda de chocolate, pouco leite e espuma",

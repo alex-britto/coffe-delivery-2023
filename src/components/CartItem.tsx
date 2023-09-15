@@ -65,6 +65,4 @@ const Container = styled.div(`
 	w-90
 	px-1
 	py-2
-	rounded
-	shadow-md
 `)

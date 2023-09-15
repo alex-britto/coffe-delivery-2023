@@ -1,10 +1,10 @@
 import styled from 'windstitch'
 
-const Typography = styled.p(``, {
+const Typography = styled.p('', {
 	variants: {
 		variant: {
-			title: `font-title`,
-			text: `font-text`,
+			title: 'font-title',
+			text: 'font-text',
 		},
 	},
 	defaultVariants: {

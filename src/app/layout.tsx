@@ -16,7 +16,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 		<html lang='en' className={`${robotoFont.variable} ${baloo2Font.variable}`}>
 			<body className='font-text text-base-text'>
 				<Header />
-				<main className='mx-auto max-w-[1200px] pb-28'>{children}</main>
+				<main className='mx-auto max-w-[1200px] px-6 pb-28 pt-6'>
+					{children}
+				</main>
 			</body>
 		</html>
 	)

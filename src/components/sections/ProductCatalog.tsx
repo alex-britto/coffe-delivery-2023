@@ -7,7 +7,7 @@ export default async function ProductCatalog() {
 	const products = await getAllProducts()
 
 	return (
-		<div className='pb-10 pt-6'>
+		<div className='pb-10'>
 			<Typography variant='title' className='text-4xl text-base-subtitle'>
 				Nossos cafés
 			</Typography>

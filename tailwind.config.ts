@@ -31,6 +31,7 @@ const config: Config = {
 			},
 			white: '#FFFFFF',
 			transparent: '#00000000',
+			red: '#F84747',
 		},
 		fontFamily: {
 			text: ['var(--font-roboto)'],
