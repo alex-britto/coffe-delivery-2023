@@ -22,9 +22,9 @@ export default function TextField({
 		<Container {...rest}>
 			<InputContainer>
 				<StyledInput type='text' placeholder={placeholder} {...inputProps} />
-				{!isRequired && !inputProps?.value && (
+				{/* {!isRequired && !inputProps?.value && (
 					<span className='italic text-base-label'>Opcional</span>
-				)}
+				)} */}
 			</InputContainer>
 			{!!errorMessage && (
 				<Typography className='mt-2 text-sm text-red'>

@@ -23,7 +23,9 @@ export default function SigninButton() {
 		<div>
 			<button
 				className='bg-purple-default p-1 text-white hover:bg-purple-dark'
-				onClick={() => signIn()}
+				onClick={() =>
+					signIn('google', { callbackUrl: 'http://localhost:3000/bar' })
+				}
 			>
 				Login
 			</button>

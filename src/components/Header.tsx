@@ -8,11 +8,13 @@ import styled from 'windstitch'
 
 import Button from '@/components/Button'
 import { useCartStore } from '@/globalStates/useCartStore'
-import SigninButton from './SigninButton'
+import { signOut, useSession } from 'next-auth/react'
 
 export default function Header() {
 	const { cart } = useCartStore()
 	const router = useRouter()
+	const { data: session } = useSession()
+
 	return (
 		<Container>
 			<Image
@@ -24,15 +26,40 @@ export default function Header() {
 				onClick={() => router.push('/')}
 				className='cursor-pointer'
 			/>
-			<SigninButton />
-			<Button
-				baseColor='tertiary'
-				icon={
-					<ShoppingCart size={22} weight='fill' className='fill-yellow-dark' />
-				}
-				onClick={() => router.push('/checkout')}
-				badgeCount={cart.length > 0 ? cart.length : undefined}
-			/>
+			{session && session.user ? (
+				<div className='flex gap-2'>
+					<div>
+						<p className='whitespace-nowrap'>{session.user.name}</p>
+						<p className='whitespace-nowrap'>{session.user.email}</p>
+					</div>
+					{session.user.image && (
+						<Image
+							src={session.user.image}
+							alt='logo'
+							width={40}
+							height={40}
+							quality={100}
+							className='rounded-full shadow'
+						/>
+					)}
+					<Button baseColor='secondary' onClick={() => signOut()}>
+						Logout
+					</Button>
+				</div>
+			) : (
+				<Button
+					baseColor='tertiary'
+					icon={
+						<ShoppingCart
+							size={22}
+							weight='fill'
+							className='fill-yellow-dark'
+						/>
+					}
+					onClick={() => router.push('/checkout')}
+					badgeCount={cart.length > 0 ? cart.length : undefined}
+				/>
+			)}
 		</Container>
 	)
 }
