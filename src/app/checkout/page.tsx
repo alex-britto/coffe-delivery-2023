@@ -4,18 +4,19 @@ import Typography from '@/components/Typography'
 import CheckoutCoffeesForm from '@/components/sections/CheckoutCoffeesForm'
 import CheckoutUserForm from '@/components/sections/CheckoutUserForm'
 import { useCartStore } from '@/globalStates/useCartStore'
+import { useUserData } from '@/globalStates/useUserData'
 import { UserCheckoutProps } from '@/schemas/checkoutSchema'
 import { signIn } from 'next-auth/react'
 import { useEffect } from 'react'
 
 export default function Page() {
-	const { cart, removeFromCart } = useCartStore()
+	const { setUserData } = useUserData()
 
 	const handleSubmitData = (data: UserCheckoutProps) => {
-		console.log(data)
 		signIn('google', { callbackUrl: '/logged' })
-		cart.map((item) => removeFromCart(item.id))
+		setUserData(data)
 	}
+
 	const userFormId = 'checkoutUserForm'
 
 	useEffect(() => {

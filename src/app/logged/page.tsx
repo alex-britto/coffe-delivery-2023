@@ -1,8 +1,22 @@
+'use client'
+
 import Typography from '@/components/Typography'
+import { useCartStore } from '@/globalStates/useCartStore'
+import { useUserData } from '@/globalStates/useUserData'
 import Image from 'next/image'
+import { useEffect } from 'react'
 import styled from 'windstitch'
 
 export default function Page() {
+	const { street, number, neighborhood, city, state, paymentMethod } =
+		useUserData()
+
+	const { clearAllCartItems } = useCartStore()
+
+	useEffect(() => {
+		useUserData.persist.rehydrate()
+		clearAllCartItems()
+	}, [])
 	return (
 		<div className='pt-16'>
 			<Typography
@@ -16,9 +30,24 @@ export default function Page() {
 			</Typography>
 			<div className='mt-10 flex justify-between gap-28'>
 				<OrderDataContainer className=''>
-					<Typography>Entrega em</Typography>
-					<Typography>Previsão de entrega</Typography>
-					<Typography>Pagamento em</Typography>
+					<Typography>
+						Entrega em{' '}
+						<strong>
+							{street}, {number}
+						</strong>
+						<br />
+						{neighborhood} - {city}, {state}
+					</Typography>
+					<Typography>
+						Previsão de entrega
+						<br />
+						<strong>20 min - 30 min </strong>
+					</Typography>
+					<Typography>
+						Pagamento na entrega
+						<br />
+						<strong>{paymentMethod}</strong>
+					</Typography>
 				</OrderDataContainer>
 				<Image
 					src='/images/delivery.png'
@@ -41,5 +70,6 @@ const OrderDataContainer = styled.div(`
 	gap-8 
 	p-10
 	border-2
-	border-yellow-light
+	border-yellow-default
+	w-full
 `)

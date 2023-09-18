@@ -6,6 +6,7 @@ export interface CartStoreTypes {
 	cart: ProductResponse[]
 	addToCart: (item: ProductResponse) => void
 	removeFromCart: (id: string) => void
+	clearAllCartItems: () => void
 }
 
 export const useCartStore = create<CartStoreTypes>()(
@@ -47,6 +48,7 @@ export const useCartStore = create<CartStoreTypes>()(
 					set((oldState: CartStoreTypes) => ({
 						cart: oldState.cart.filter((item) => item.id !== productId),
 					})),
+				clearAllCartItems: () => set(() => ({ cart: [] })),
 			}
 		},
 		{
