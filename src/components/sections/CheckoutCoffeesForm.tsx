@@ -1,9 +1,10 @@
 import Button from '@/components/Button'
 import CartItem from '@/components/CartItem'
+import Typography from '@/components/Typography'
 import { useCartStore } from '@/globalStates/useCartStore'
 import { formatNumberToMoney } from '@/utils/formatters'
+import { useEffect } from 'react'
 import styled from 'windstitch'
-import Typography from '../Typography'
 
 interface CheckoutCoffeesFormProps {
 	userFormId: string
@@ -16,6 +17,10 @@ export default function CheckoutCoffeesForm({
 	const cartTotalCoast = cart.reduce((total, item) => {
 		return total + item.price * (item.quantity ?? 0)
 	}, 0)
+
+	useEffect(() => {
+		useCartStore.persist.rehydrate()
+	}, [])
 	return (
 		<Container>
 			{cart.map((item) => {

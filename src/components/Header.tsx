@@ -9,11 +9,16 @@ import styled from 'windstitch'
 import Button from '@/components/Button'
 import { useCartStore } from '@/globalStates/useCartStore'
 import { signOut, useSession } from 'next-auth/react'
+import { useEffect } from 'react'
 
 export default function Header() {
 	const { cart } = useCartStore()
 	const router = useRouter()
 	const { data: session } = useSession()
+
+	useEffect(() => {
+		useCartStore.persist.rehydrate()
+	}, [])
 
 	return (
 		<Container>

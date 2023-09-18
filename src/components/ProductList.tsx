@@ -5,6 +5,7 @@ import { useCartStore } from '@/globalStates/useCartStore'
 import { ProductResponse } from '@/interfaces/products'
 
 import ProductCard from '@/components/ProductCard'
+import { useEffect } from 'react'
 
 interface ProductListProps {
 	productList: ProductResponse[]
@@ -12,6 +13,10 @@ interface ProductListProps {
 
 export default function ProductList({ productList }: ProductListProps) {
 	const { addToCart, cart } = useCartStore()
+
+	useEffect(() => {
+		useCartStore.persist.rehydrate()
+	}, [])
 
 	const showCartItemQuantity = (id: string) => {
 		const selectedItem = cart.find((item) => item.id === id)
