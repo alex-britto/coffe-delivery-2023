@@ -11,16 +11,15 @@ interface ProductListProps {
 }
 
 export default function ProductList({ productList }: ProductListProps) {
-	const { addToCart } = useCartStore()
+	const { addToCart, cart } = useCartStore()
 
-	const handleAddItemToCart = (id: string, quantity: number) => {
-		const selectedItem = productList.find((item) => item.id === id)
-
-		selectedItem &&
-			addToCart({
-				...selectedItem,
-				quantity: quantity,
-			})
+	const showCartItemQuantity = (id: string) => {
+		const selectedItem = cart.find((item) => item.id === id)
+		if (selectedItem) {
+			const cartItemIndex = cart.indexOf(selectedItem)
+			return cart[cartItemIndex]?.quantity
+		}
+		return 0
 	}
 
 	return (
@@ -33,8 +32,12 @@ export default function ProductList({ productList }: ProductListProps) {
 					title={item.title}
 					description={item.description}
 					price={item.price}
-					onCartClick={(quantity: number) =>
-						handleAddItemToCart(item.id, quantity)
+					quantity={showCartItemQuantity(item.id)}
+					onChangeItemQuantity={(quantity: number) =>
+						addToCart({
+							...item,
+							quantity: quantity,
+						})
 					}
 				/>
 			))}

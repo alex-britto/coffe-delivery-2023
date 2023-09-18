@@ -5,4 +5,5 @@ export interface ProductResponse {
 	description: string
 	tags: string[]
 	price: number
+	quantity?: number
 }

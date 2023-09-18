@@ -1,20 +1,19 @@
 import { ProductResponse } from '@/interfaces/products'
 import { create } from 'zustand'
 
-interface CartProduct extends ProductResponse {
-	quantity: number
-}
-
 interface CartStoreTypes {
-	cart: CartProduct[]
-	addToCart: (item: CartProduct) => void
+	cart: ProductResponse[]
+	addToCart: (item: ProductResponse) => void
 	removeFromCart: (id: string) => void
 }
 
 export const useCartStore = create<CartStoreTypes>((set) => {
-	const handleAddToCart = (newProduct: CartProduct, cart: CartProduct[]) => {
+	const handleAddToCart = (
+		newProduct: ProductResponse,
+		cart: ProductResponse[],
+	) => {
 		const isItemAlredyOnCart = cart.find((item) => item.id === newProduct.id)
-		if (isItemAlredyOnCart) {
+		if (isItemAlredyOnCart && newProduct.quantity) {
 			return updateProductQuantity(
 				cart.indexOf(isItemAlredyOnCart),
 				newProduct.quantity,
@@ -28,7 +27,7 @@ export const useCartStore = create<CartStoreTypes>((set) => {
 	const updateProductQuantity = (
 		productIndex: number,
 		newProductQuantity: number,
-		cart: CartProduct[],
+		cart: ProductResponse[],
 	) => {
 		cart[productIndex].quantity = newProductQuantity
 		return [...cart]

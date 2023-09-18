@@ -6,26 +6,30 @@ import styled, { W } from 'windstitch'
 import DiscardButton from '@/components/DiscardButton'
 import NumberInput from '@/components/NumberInput'
 import Typography from '@/components/Typography'
+import { formatNumberToMoney } from '@/utils/formatters'
 
 interface CartItemProps extends W.Infer<typeof Container> {
+	itemId: string
 	imageSrc: string
 	title: string
 	price: number
 	quantity: number
-	onQuantityChange: (e: number) => void
+	onChangeItemQuantity: (e: number) => void
 	onRemoveClick: (itemId: string) => void
 }
 
 export default function CartItem({
+	itemId,
 	imageSrc,
 	title,
 	price,
 	quantity,
-	onQuantityChange,
+	onChangeItemQuantity,
 	onRemoveClick,
+	...rest
 }: CartItemProps) {
 	return (
-		<Container>
+		<Container {...rest}>
 			<div className='flex gap-5'>
 				<Image
 					src={imageSrc}
@@ -41,18 +45,15 @@ export default function CartItem({
 					<div className='flex gap-2'>
 						<NumberInput
 							value={quantity}
-							onIncreaseClick={() => onQuantityChange(quantity + 1)}
-							onDecreaseClick={() => onQuantityChange(quantity - 1)}
+							onIncreaseClick={() => onChangeItemQuantity(quantity + 1)}
+							onDecreaseClick={() => onChangeItemQuantity(quantity - 1)}
 						/>
-						<DiscardButton onClick={() => onRemoveClick(title)} />
+						<DiscardButton onClick={() => onRemoveClick(itemId)} />
 					</div>
 				</div>
 			</div>
 			<Typography variant='title'>
-				R${' '}
-				{new Intl.NumberFormat('pt-Br', {
-					minimumFractionDigits: 2,
-				}).format(price)}
+				{formatNumberToMoney(price, true)}
 			</Typography>
 		</Container>
 	)

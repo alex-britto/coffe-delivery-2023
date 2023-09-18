@@ -8,6 +8,7 @@ import styled from 'windstitch'
 
 import Button from '@/components/Button'
 import { useCartStore } from '@/globalStates/useCartStore'
+import SigninButton from './SigninButton'
 
 export default function Header() {
 	const { cart } = useCartStore()
@@ -20,7 +21,10 @@ export default function Header() {
 				width={85}
 				height={40}
 				quality={100}
+				onClick={() => router.push('/')}
+				className='cursor-pointer'
 			/>
+			<SigninButton />
 			<Button
 				baseColor='tertiary'
 				icon={

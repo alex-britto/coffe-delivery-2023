@@ -1,15 +1,12 @@
 'use client'
 
 import Image from 'next/image'
-import { useState } from 'react'
 
 import styled, { W } from 'windstitch'
 
-import { ShoppingCart } from '@phosphor-icons/react'
-
-import Button from '@/components/Button'
 import NumberInput from '@/components/NumberInput'
 import Typography from '@/components/Typography'
+import { formatNumberToMoney } from '@/utils/formatters'
 
 interface ProductCardProps extends W.Infer<typeof Container> {
 	imageSrc: string
@@ -18,7 +15,7 @@ interface ProductCardProps extends W.Infer<typeof Container> {
 	description: string
 	price: number
 	quantity?: number
-	onCartClick: (e: number) => void
+	onChangeItemQuantity: (e: number) => void
 }
 
 export default function ProductCard({
@@ -28,10 +25,9 @@ export default function ProductCard({
 	description,
 	price,
 	quantity = 0,
-	onCartClick,
+	onChangeItemQuantity,
 	...rest
 }: ProductCardProps) {
-	const [numberInputValue, setNumberInputValue] = useState(quantity)
 	return (
 		<Container {...rest}>
 			<Image
@@ -60,25 +56,14 @@ export default function ProductCard({
 				<div className='flex items-center'>
 					<Typography className='mr-1 text-xs'>R$</Typography>
 					<Typography variant='title' className='text-xl'>
-						{new Intl.NumberFormat('pt-Br', {
-							minimumFractionDigits: 2,
-						}).format(price)}
+						{formatNumberToMoney(price)}
 					</Typography>
 				</div>
 				<div className='flex gap-2'>
 					<NumberInput
-						value={numberInputValue}
-						onIncreaseClick={() =>
-							setNumberInputValue((numberInputValue) => numberInputValue + 1)
-						}
-						onDecreaseClick={() =>
-							setNumberInputValue((numberInputValue) => numberInputValue - 1)
-						}
-					/>
-					<Button
-						baseColor='secondary'
-						icon={<ShoppingCart weight='fill' />}
-						onClick={() => onCartClick(numberInputValue)}
+						value={quantity}
+						onIncreaseClick={() => onChangeItemQuantity(quantity + 1)}
+						onDecreaseClick={() => onChangeItemQuantity(quantity - 1)}
 					/>
 				</div>
 			</div>

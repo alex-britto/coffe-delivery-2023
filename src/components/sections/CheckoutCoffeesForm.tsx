@@ -1,5 +1,9 @@
 import Button from '@/components/Button'
+import CartItem from '@/components/CartItem'
+import { useCartStore } from '@/globalStates/useCartStore'
+import { formatNumberToMoney } from '@/utils/formatters'
 import styled from 'windstitch'
+import Typography from '../Typography'
 
 interface CheckoutCoffeesFormProps {
 	userFormId: string
@@ -8,11 +12,48 @@ interface CheckoutCoffeesFormProps {
 export default function CheckoutCoffeesForm({
 	userFormId,
 }: CheckoutCoffeesFormProps) {
+	const { cart, addToCart, removeFromCart } = useCartStore()
+	const cartTotalCoast = cart.reduce((total, item) => {
+		return total + item.price * (item.quantity ?? 0)
+	}, 0)
 	return (
 		<Container>
-			CartList
-			<br />
-			CartTotalCoast
+			{cart.map((item) => {
+				return (
+					<CartItem
+						key={item.id}
+						itemId={item.id}
+						imageSrc={item.imageSrc}
+						title={item.title}
+						price={item.price}
+						quantity={item.quantity ?? 0}
+						onChangeItemQuantity={(quantity: number) =>
+							addToCart({
+								...item,
+								quantity: quantity,
+							})
+						}
+						onRemoveClick={removeFromCart}
+						className='mb-6 border-b-[1px] border-base-button pb-6'
+					/>
+				)
+			})}
+			<div className='mb-6 flex flex-col gap-3'>
+				<div className='flex justify-between'>
+					<Typography className='text-sm'>Total de itens</Typography>
+					<Typography>{formatNumberToMoney(cartTotalCoast, true)}</Typography>
+				</div>
+				<div className='flex justify-between'>
+					<Typography className='text-sm'>Entrega</Typography>
+					<Typography>{formatNumberToMoney(10, true)}</Typography>
+				</div>
+				<div className='flex justify-between'>
+					<Typography className='text-xl font-bold'>Total</Typography>
+					<Typography className='text-xl font-bold'>
+						{formatNumberToMoney(cartTotalCoast + 10, true)}
+					</Typography>
+				</div>
+			</div>
 			<Button type='submit' form={userFormId}>
 				CONFIRMAR PEDIDO
 			</Button>
