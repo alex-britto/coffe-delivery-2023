@@ -29,7 +29,7 @@ export default function Page() {
 				Agora é só aguardar que logo o café chegará até você
 			</Typography>
 			<div className='mt-10 flex justify-between gap-28'>
-				<OrderDataContainer className=''>
+				<OrderDataContainer>
 					<Typography>
 						Entrega em{' '}
 						<strong>
@@ -72,4 +72,6 @@ const OrderDataContainer = styled.div(`
 	border-2
 	border-yellow-default
 	w-full
+	border-l-purple-dark
+	border-b-purple-dark
 `)
