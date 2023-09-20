@@ -5,8 +5,7 @@ export default function Page() {
 	return (
 		<>
 			<section>
-				<Hero /> Ola adsad sadsad sad sad asd as das dasd asd sa das dsa dsad sa
-				dsa d
+				<Hero />
 			</section>
 
 			<section>
