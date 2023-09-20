@@ -57,7 +57,7 @@ const StyledButton = styled.button(
 )
 
 const Badge = styled.div(
-	`
+	`	
 		absolute
 		bottom-7
 		left-7
